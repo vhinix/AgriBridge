@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="chart">
+  <path d="M3 3v16.5A1.5 1.5 0 0 0 4.5 21H21"></path>
+  <path d="M7 15.5V12"></path>
+  <path d="M12 15.5V8"></path>
+  <path d="M17 15.5v-6"></path>
+</svg>
