@@ -9,10 +9,13 @@ import Diagnosis from './pages/Diagnosis';
 import Profile from './pages/Profile';
 import Resources from './pages/Resources';
 import Training from './pages/Training';
+import AddFarmer from './pages/farmers/AddFarmer';
+import FarmerDetail from './pages/farmers/FarmerDetail';
+import Farmers from './pages/farmers/Farmers';
 
-// /alerts and /farmers have no page module in the repo yet (pages/alerts/ holds
-// only a README, and there is no Farmers page file). They stay on this stub so
-// all eight nav destinations resolve; swap in the real pages when they land.
+
+// /alerts has no page module in the repo yet (pages/alerts/ holds only a
+// README), so it stays on this stub to keep the nav item resolvable.
 function Pending({ title }) {
   return <h1 className="text-[28px] leading-tight md:text-[34px]">{title}</h1>;
 }
@@ -28,7 +31,9 @@ export default function AppRoutes() {
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/alerts" element={<Pending title="Alerts" />} />
-        <Route path="/farmers" element={<Pending title="Farmers" />} />
+        <Route path="/farmers" element={<Farmers />} />
+        <Route path="/farmers/new" element={<AddFarmer />} />
+        <Route path="/farmers/:id" element={<FarmerDetail />} />
         <Route path="/diagnosis" element={<Diagnosis />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/training" element={<Training />} />
