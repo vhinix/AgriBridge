@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthProvider';
 import { list } from '../../services/farmer';
 import { NavIcon } from '../../src/components/layout/Sidebar';
-import plusIcon from '../../src/assets/icons/plus.svg';
 
 export function initials(name = '') {
   return name
@@ -90,7 +89,7 @@ export default function Farmers() {
           to="/farmers/new"
           className="flex flex-none items-center gap-2 rounded-xl bg-primary p-[12px_20px] text-sm font-semibold text-white shadow-[0_2px_4px_rgba(31,41,55,.10)] transition-colors hover:bg-primaryDark"
         >
-          <NavIcon src={plusIcon} className="flex h-[18px] w-[18px]" />
+          <NavIcon src="/icons/plus.svg" className="flex h-[18px] w-[18px]" />
           Add farmer
         </Link>
       </div>

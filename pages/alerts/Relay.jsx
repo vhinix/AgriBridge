@@ -6,8 +6,6 @@ import { logActivity } from '../../services/activity';
 import { createRelay, getById } from '../../services/alerts';
 import { list as listFarmers } from '../../services/farmer';
 import { NavIcon } from '../../src/components/layout/Sidebar';
-import checkIcon from '../../src/assets/icons/check.svg';
-import messageIcon from '../../src/assets/icons/message.svg';
 import { TypeChip, matchesAlertRegion } from './Alerts';
 
 const STEPS = ['Select farmers', 'Preview SMS', 'Sent'];
@@ -282,7 +280,7 @@ export default function Relay() {
                       >
                         {checked && (
                           <NavIcon
-                            src={checkIcon}
+                            src="/icons/check.svg"
                             className="flex h-3.5 w-3.5"
                           />
                         )}
@@ -345,7 +343,7 @@ export default function Relay() {
                   className="w-full resize-y rounded-2xl border border-border bg-tint p-4 text-sm leading-[1.7] text-text outline-none focus:border-primary"
                 />
                 <div className="mt-4 flex items-center gap-2 text-[13px] text-soft">
-                  <NavIcon src={messageIcon} className="flex h-4 w-4 flex-none" />
+                  <NavIcon src="/icons/message.svg" className="flex h-4 w-4 flex-none" />
                   No SMS gateway is connected yet — sending records the relay
                   only.
                 </div>
@@ -394,7 +392,7 @@ export default function Relay() {
         {step === 3 && (
           <div className="py-4 text-center">
             <div className="mx-auto mb-6 grid h-[72px] w-[72px] place-items-center rounded-full bg-pale">
-              <NavIcon src={checkIcon} className="flex h-8 w-8 text-primary" />
+              <NavIcon src="/icons/check.svg" className="flex h-8 w-8 text-primary" />
             </div>
 
             <h2 className="mb-2 text-[26px]">Relayed to {sentCount} farmers</h2>
@@ -410,7 +408,7 @@ export default function Relay() {
               <div className="flex items-start gap-4">
                 <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-accentTint p-2">
                   <NavIcon
-                    src={messageIcon}
+                    src="/icons/message.svg"
                     className="flex h-full w-full text-accentInk"
                   />
                 </span>
@@ -449,7 +447,7 @@ export default function Relay() {
           role="status"
           className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2 rounded-xl bg-primaryDark p-[12px_20px] text-sm font-semibold text-white shadow-panel"
         >
-          <NavIcon src={checkIcon} className="flex h-4 w-4 flex-none" />
+          <NavIcon src="/icons/check.svg" className="flex h-4 w-4 flex-none" />
           {toast}
         </div>
       )}

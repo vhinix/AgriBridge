@@ -2,20 +2,16 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { supabase } from '../lib/supabase';
 import { NavIcon } from '../src/components/layout/Sidebar';
-import bookIcon from '../src/assets/icons/book.svg';
-import fileIcon from '../src/assets/icons/file.svg';
-import infoIcon from '../src/assets/icons/info.svg';
-import playIcon from '../src/assets/icons/play.svg';
 
 // Categories are the values training.category is documented to hold.
 const CATEGORIES = {
-  Article: { icon: fileIcon, tint: 'bg-pale', text: 'text-primary' },
-  Video: { icon: playIcon, tint: 'bg-accentTint', text: 'text-accentInk' },
-  Guide: { icon: bookIcon, tint: 'bg-[#E6F2E6]', text: 'text-primaryDark' },
-  'Tip sheet': { icon: infoIcon, tint: 'bg-pale', text: 'text-primaryDark' },
+  Article: { icon: '/icons/file.svg', tint: 'bg-pale', text: 'text-primary' },
+  Video: { icon: '/icons/play.svg', tint: 'bg-accentTint', text: 'text-accentInk' },
+  Guide: { icon: '/icons/book.svg', tint: 'bg-[#E6F2E6]', text: 'text-primaryDark' },
+  'Tip sheet': { icon: '/icons/info.svg', tint: 'bg-pale', text: 'text-primaryDark' },
 };
 
-const FALLBACK = { icon: bookIcon, tint: 'bg-[#EEF2EE]', text: 'text-soft' };
+const FALLBACK = { icon: '/icons/book.svg', tint: 'bg-[#EEF2EE]', text: 'text-soft' };
 
 const CATEGORY_ORDER = Object.keys(CATEGORIES);
 
@@ -132,7 +128,7 @@ export default function Training() {
     <div>
       <div className="mb-2 flex items-center gap-3">
         <span className="grid h-11 w-11 flex-none place-items-center rounded-2xl bg-pale p-[11px]">
-          <NavIcon src={bookIcon} className="flex h-full w-full text-primary" />
+          <NavIcon src="/icons/book.svg" className="flex h-full w-full text-primary" />
         </span>
         <h1 className="text-[28px] leading-tight md:text-[34px]">Training hub</h1>
       </div>

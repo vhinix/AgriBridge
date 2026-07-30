@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
 import { supabase } from '../lib/supabase';
 import { NavIcon } from '../src/components/layout/Sidebar';
-import settingsIcon from '../src/assets/icons/settings.svg';
 
 const FIELD = 'flex flex-col gap-2 text-[13px] font-semibold text-muted';
 const INPUT =
@@ -107,7 +106,7 @@ export default function Profile() {
       <div className="mb-2 flex items-center gap-3">
         <span className="grid h-11 w-11 flex-none place-items-center rounded-2xl bg-pale p-[11px]">
           <NavIcon
-            src={settingsIcon}
+            src="/icons/settings.svg"
             className="flex h-full w-full text-primary"
           />
         </span>

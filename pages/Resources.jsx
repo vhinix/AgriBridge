@@ -2,26 +2,19 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { supabase } from '../lib/supabase';
 import { NavIcon } from '../src/components/layout/Sidebar';
-import boxIcon from '../src/assets/icons/box.svg';
-import dropletIcon from '../src/assets/icons/droplet.svg';
-import flaskIcon from '../src/assets/icons/flask.svg';
-import seedIcon from '../src/assets/icons/seed.svg';
-import sproutIcon from '../src/assets/icons/sprout.svg';
-import tractorIcon from '../src/assets/icons/tractor.svg';
-import wrenchIcon from '../src/assets/icons/wrench.svg';
 
 // Categories are the values resources.category is documented to hold.
 const CATEGORIES = {
-  Seed: { icon: seedIcon, tint: 'bg-pale', text: 'text-primary' },
-  Fertiliser: { icon: flaskIcon, tint: 'bg-accentTint', text: 'text-accentInk' },
+  Seed: { icon: '/icons/seed.svg', tint: 'bg-pale', text: 'text-primary' },
+  Fertiliser: { icon: '/icons/flask.svg', tint: 'bg-accentTint', text: 'text-accentInk' },
   'Agro-chemical': {
-    icon: dropletIcon,
+    icon: '/icons/droplet.svg',
     tint: 'bg-[#E6F2E6]',
     text: 'text-primaryDark',
   },
-  Equipment: { icon: wrenchIcon, tint: 'bg-[#EEF2EE]', text: 'text-soft' },
+  Equipment: { icon: '/icons/wrench.svg', tint: 'bg-[#EEF2EE]', text: 'text-soft' },
   'Planting material': {
-    icon: sproutIcon,
+    icon: '/icons/sprout.svg',
     tint: 'bg-pale',
     text: 'text-primaryDark',
   },
@@ -29,7 +22,7 @@ const CATEGORIES = {
 
 // Anything uncategorised falls back to the general supply icon.
 const FALLBACK = {
-  icon: tractorIcon,
+  icon: '/icons/tractor.svg',
   tint: 'bg-[#EEF2EE]',
   text: 'text-soft',
 };
@@ -86,7 +79,7 @@ export default function Resources() {
     <div>
       <div className="mb-2 flex items-center gap-3">
         <span className="grid h-11 w-11 flex-none place-items-center rounded-2xl bg-pale p-[11px]">
-          <NavIcon src={boxIcon} className="flex h-full w-full text-primary" />
+          <NavIcon src="/icons/box.svg" className="flex h-full w-full text-primary" />
         </span>
         <h1 className="text-[28px] leading-tight md:text-[34px]">Resources</h1>
       </div>

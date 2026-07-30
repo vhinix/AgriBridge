@@ -5,10 +5,6 @@ import { supabase } from '../lib/supabase';
 import { logActivity } from '../services/activity';
 import { diagnose } from '../services/diagnosis';
 import { NavIcon } from '../src/components/layout/Sidebar';
-import checkIcon from '../src/assets/icons/check.svg';
-import leafIcon from '../src/assets/icons/leaf.svg';
-import scanIcon from '../src/assets/icons/scan.svg';
-import uploadIcon from '../src/assets/icons/upload.svg';
 
 const CROPS = ['Cassava', 'Yam', 'Maize', 'Rice'];
 
@@ -197,7 +193,7 @@ export default function Diagnosis() {
             />
           ) : (
             <span className="mb-2 grid h-14 w-14 place-items-center rounded-full bg-pale p-[14px]">
-              <NavIcon src={uploadIcon} className="flex h-full w-full text-primary" />
+              <NavIcon src="/icons/upload.svg" className="flex h-full w-full text-primary" />
             </span>
           )}
 
@@ -231,7 +227,7 @@ export default function Diagnosis() {
               disabled={!image || !farmer || running}
               className="flex items-center gap-2 rounded-xl bg-primary p-[12px_24px] text-sm font-semibold text-white shadow-[0_2px_4px_rgba(31,41,55,.10)] transition-colors hover:bg-primaryDark disabled:cursor-not-allowed disabled:opacity-70"
             >
-              <NavIcon src={scanIcon} className="flex h-[18px] w-[18px]" />
+              <NavIcon src="/icons/scan.svg" className="flex h-[18px] w-[18px]" />
               {running ? 'Analysing…' : 'Run diagnosis'}
             </button>
           </div>
@@ -261,7 +257,7 @@ export default function Diagnosis() {
         {result && !running && (
           <div className="mt-6 rounded-2xl bg-tint p-6">
             <span className="inline-flex items-center gap-2 rounded-full bg-accentTint p-[4px_12px] text-[11px] font-semibold uppercase tracking-[.08em] text-accentInk">
-              <NavIcon src={leafIcon} className="flex h-[14px] w-[14px]" />
+              <NavIcon src="/icons/leaf.svg" className="flex h-[14px] w-[14px]" />
               Diagnosis result
             </span>
 
@@ -293,7 +289,7 @@ export default function Diagnosis() {
                 disabled={saving || saved || !farmer}
                 className="flex items-center gap-2 rounded-xl bg-accent p-[12px_20px] text-sm font-semibold text-text shadow-[0_2px_4px_rgba(31,41,55,.08)] transition-colors hover:bg-[#DDA300] disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {saved && <NavIcon src={checkIcon} className="flex h-[18px] w-[18px]" />}
+                {saved && <NavIcon src="/icons/check.svg" className="flex h-[18px] w-[18px]" />}
                 {saved
                   ? 'Saved to farmer record'
                   : saving
