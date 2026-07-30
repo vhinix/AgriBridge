@@ -41,7 +41,7 @@ export function Brand({ className = '' }) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <img
-        src="/logo/agribridge-mark-white.svg"
+        src="/logo/agribridge-mark-gold.svg"
         alt=""
         className="block h-7 w-7 flex-none"
       />
