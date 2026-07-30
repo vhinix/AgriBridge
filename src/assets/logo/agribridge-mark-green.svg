@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="AgriBridge">
+  <path fill="#2E7D32" d="M116 250a12 12 0 0 0 24 0V140h-24z"></path>
+  <path fill="#2E7D32" d="M128 152c0-33-9-59-30-76C71 54 22 46 6 44c-2 17-1 60 24 82 24 21 68 26 98 26z"></path>
+  <path fill="#2E7D32" d="M136 130c1-34 10-60 31-77 27-22 76-30 92-32 2 17 1 60-24 82-24 21-69 27-99 27z"></path>
+</svg>
