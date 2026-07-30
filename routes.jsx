@@ -12,13 +12,9 @@ import Training from './pages/Training';
 import AddFarmer from './pages/farmers/AddFarmer';
 import FarmerDetail from './pages/farmers/FarmerDetail';
 import Farmers from './pages/farmers/Farmers';
-
-
-// /alerts has no page module in the repo yet (pages/alerts/ holds only a
-// README), so it stays on this stub to keep the nav item resolvable.
-function Pending({ title }) {
-  return <h1 className="text-[28px] leading-tight md:text-[34px]">{title}</h1>;
-}
+import AlertDetail from './pages/alerts/AlertDetail';
+import Alerts from './pages/alerts/Alerts';
+import Relay from './pages/alerts/Relay';
 
 export default function AppRoutes() {
   return (
@@ -30,7 +26,9 @@ export default function AppRoutes() {
       <Route element={<AppShell />}>
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/alerts" element={<Pending title="Alerts" />} />
+        <Route path="/alerts" element={<Alerts />} />
+        <Route path="/alerts/:id" element={<AlertDetail />} />
+        <Route path="/alerts/:id/relay" element={<Relay />} />
         <Route path="/farmers" element={<Farmers />} />
         <Route path="/farmers/new" element={<AddFarmer />} />
         <Route path="/farmers/:id" element={<FarmerDetail />} />
