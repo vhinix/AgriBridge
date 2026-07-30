@@ -6,13 +6,6 @@ import { supabase } from '../lib/supabase';
 import { list as listAlerts } from '../services/alerts';
 import { currentSeason, recommend, resolveZone } from '../services/recommendation';
 import { NavIcon } from '../src/components/layout/Sidebar';
-import bellIcon from '../src/assets/icons/bell.svg';
-import clipboardIcon from '../src/assets/icons/clipboard.svg';
-import dashboardIcon from '../src/assets/icons/dashboard.svg';
-import leafIcon from '../src/assets/icons/leaf.svg';
-import sendIcon from '../src/assets/icons/send.svg';
-import sproutIcon from '../src/assets/icons/sprout.svg';
-import usersIcon from '../src/assets/icons/users.svg';
 import { SeverityChip, TypeChip, formatAge } from './alerts/Alerts';
 
 // Monday 00:00 of the current week, local time.
@@ -37,13 +30,13 @@ function sameState(a, b) {
 
 // Activity types map onto the icons this screen is allowed to use.
 const ACTIVITY_ICONS = {
-  alert_relayed: { icon: sendIcon, tint: 'bg-accentTint', text: 'text-accentInk' },
-  diagnosis_logged: { icon: leafIcon, tint: 'bg-pale', text: 'text-primary' },
-  farmer_added: { icon: usersIcon, tint: 'bg-pale', text: 'text-primary' },
+  alert_relayed: { icon: '/icons/send.svg', tint: 'bg-accentTint', text: 'text-accentInk' },
+  diagnosis_logged: { icon: '/icons/leaf.svg', tint: 'bg-pale', text: 'text-primary' },
+  farmer_added: { icon: '/icons/users.svg', tint: 'bg-pale', text: 'text-primary' },
 };
 
 const FALLBACK_ACTIVITY = {
-  icon: clipboardIcon,
+  icon: '/icons/clipboard.svg',
   tint: 'bg-[#EEF2EE]',
   text: 'text-soft',
 };
@@ -227,7 +220,7 @@ export default function Dashboard() {
           to="/diagnosis"
           className="flex flex-none items-center gap-2 rounded-xl border border-[#D6E3D6] bg-surface p-[12px_20px] text-sm font-semibold text-primary shadow-[0_1px_2px_rgba(31,41,55,.04)] transition-colors hover:bg-[#F1F7F1]"
         >
-          <NavIcon src={leafIcon} className="flex h-[18px] w-[18px]" />
+          <NavIcon src="/icons/leaf.svg" className="flex h-[18px] w-[18px]" />
           New diagnosis
         </Link>
       </div>
@@ -237,7 +230,7 @@ export default function Dashboard() {
           label="Farmers managed"
           value={show(stats.farmers)}
           note="in your caseload"
-          icon={usersIcon}
+          icon="/icons/users.svg"
           tint="bg-pale"
           text="text-primary"
         />
@@ -245,7 +238,7 @@ export default function Dashboard() {
           label="Active alerts"
           value={String(regionAlerts.length)}
           note="in your region"
-          icon={bellIcon}
+          icon="/icons/bell.svg"
           tint="bg-accentTint"
           text="text-accentInk"
         />
@@ -253,7 +246,7 @@ export default function Dashboard() {
           label="Diagnoses this week"
           value={show(stats.diagnoses)}
           note="since Monday"
-          icon={leafIcon}
+          icon="/icons/leaf.svg"
           tint="bg-pale"
           text="text-primary"
         />
@@ -261,7 +254,7 @@ export default function Dashboard() {
           label="Alerts relayed"
           value={show(stats.relays)}
           note="since Monday"
-          icon={sendIcon}
+          icon="/icons/send.svg"
           tint="bg-[#E6F2E6]"
           text="text-primaryDark"
         />
@@ -325,7 +318,7 @@ export default function Dashboard() {
             <div className="mb-4 flex flex-wrap items-center gap-3">
               <span className="grid h-11 w-11 flex-none place-items-center rounded-2xl bg-pale p-[11px]">
                 <NavIcon
-                  src={sproutIcon}
+                  src="/icons/sprout.svg"
                   className="flex h-full w-full text-primaryDark"
                 />
               </span>
@@ -419,7 +412,7 @@ export default function Dashboard() {
             to="/farmers"
             className="mt-4 flex items-center gap-2 rounded-xl border border-border bg-surface p-[12px_16px] text-sm font-semibold transition-colors hover:bg-[#F1F7F1]"
           >
-            <NavIcon src={dashboardIcon} className="flex h-[18px] w-[18px] text-primary" />
+            <NavIcon src="/icons/dashboard.svg" className="flex h-[18px] w-[18px] text-primary" />
             Go to your farmer list
           </Link>
         </section>

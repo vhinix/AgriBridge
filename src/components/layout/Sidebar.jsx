@@ -1,26 +1,16 @@
 import { NavLink } from 'react-router-dom';
 
-import markWhite from '../../assets/logo/agribridge-mark-white.svg';
-import dashboardIcon from '../../assets/icons/dashboard.svg';
-import bellIcon from '../../assets/icons/bell.svg';
-import usersIcon from '../../assets/icons/users.svg';
-import leafIcon from '../../assets/icons/leaf.svg';
-import boxIcon from '../../assets/icons/box.svg';
-import bookIcon from '../../assets/icons/book.svg';
-import chartIcon from '../../assets/icons/chart.svg';
-import settingsIcon from '../../assets/icons/settings.svg';
-
 // Canonical nav definition for the whole shell. TopBar imports this so the
 // desktop rail and the narrow-screen bar can never drift apart.
 export const NAV_ITEMS = [
-  { to: '/dashboard', label: 'Dashboard', icon: dashboardIcon },
-  { to: '/alerts', label: 'Alerts', icon: bellIcon },
-  { to: '/farmers', label: 'Farmers', icon: usersIcon },
-  { to: '/diagnosis', label: 'Crop diagnosis', icon: leafIcon },
-  { to: '/resources', label: 'Resources', icon: boxIcon },
-  { to: '/training', label: 'Training hub', icon: bookIcon },
-  { to: '/analytics', label: 'Analytics', icon: chartIcon },
-  { to: '/profile', label: 'Profile', icon: settingsIcon },
+  { to: '/dashboard', label: 'Dashboard', icon: '/icons/dashboard.svg' },
+  { to: '/alerts', label: 'Alerts', icon: '/icons/bell.svg' },
+  { to: '/farmers', label: 'Farmers', icon: '/icons/users.svg' },
+  { to: '/diagnosis', label: 'Crop diagnosis', icon: '/icons/leaf.svg' },
+  { to: '/resources', label: 'Resources', icon: '/icons/box.svg' },
+  { to: '/training', label: 'Training hub', icon: '/icons/book.svg' },
+  { to: '/analytics', label: 'Analytics', icon: '/icons/chart.svg' },
+  { to: '/profile', label: 'Profile', icon: '/icons/settings.svg' },
 ];
 
 // The icon SVGs are authored with stroke="currentColor", but this Vite setup has
@@ -51,7 +41,7 @@ export function Brand({ className = '' }) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <img
-        src={markWhite}
+        src="/logo/agribridge-mark-white.svg"
         alt=""
         className="block h-7 w-7 flex-none"
       />

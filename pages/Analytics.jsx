@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../context/AuthProvider';
 import { supabase } from '../lib/supabase';
 import { NavIcon } from '../src/components/layout/Sidebar';
-import chartIcon from '../src/assets/icons/chart.svg';
 
 // Single-series charts, so one hue does all the work — no categorical palette to
 // balance and no legend needed (each chart's title names what is plotted).
@@ -263,7 +262,7 @@ export default function Analytics() {
     <div>
       <div className="mb-2 flex items-center gap-3">
         <span className="grid h-11 w-11 flex-none place-items-center rounded-2xl bg-pale p-[11px]">
-          <NavIcon src={chartIcon} className="flex h-full w-full text-primary" />
+          <NavIcon src="/icons/chart.svg" className="flex h-full w-full text-primary" />
         </span>
         <h1 className="text-[28px] leading-tight md:text-[34px]">Analytics</h1>
       </div>

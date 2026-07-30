@@ -5,7 +5,6 @@ import { useAuth } from '../../context/AuthProvider';
 import { getById } from '../../services/alerts';
 import { list as listFarmers } from '../../services/farmer';
 import { NavIcon } from '../../src/components/layout/Sidebar';
-import sendIcon from '../../src/assets/icons/send.svg';
 import {
   ALERT_TYPES,
   SeverityChip,
@@ -135,7 +134,7 @@ export default function AlertDetail() {
             to={`/alerts/${alert.id}/relay`}
             className="flex items-center gap-2 rounded-xl bg-accent p-[14px_24px] text-[15px] font-semibold text-text shadow-[0_2px_4px_rgba(31,41,55,.08)] transition-colors hover:bg-[#DDA300]"
           >
-            <NavIcon src={sendIcon} className="flex h-[18px] w-[18px]" />
+            <NavIcon src="/icons/send.svg" className="flex h-[18px] w-[18px]" />
             Relay to farmers
           </Link>
           <span className="text-sm text-soft">

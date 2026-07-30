@@ -4,7 +4,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { getById, remove, update } from '../../services/farmer';
 import { NavIcon } from '../../src/components/layout/Sidebar';
-import pencilIcon from '../../src/assets/icons/pencil.svg';
 import { initials } from './Farmers';
 
 const FIELD = 'flex flex-col gap-2 text-[13px] font-semibold text-muted';
@@ -201,7 +200,7 @@ export default function FarmerDetail() {
               onClick={editing ? () => setEditing(false) : startEditing}
               className="flex items-center gap-2 rounded-xl border border-border bg-surface p-[12px_20px] text-sm font-semibold transition-colors hover:bg-[#F1F7F1]"
             >
-              <NavIcon src={pencilIcon} className="flex h-[18px] w-[18px]" />
+              <NavIcon src="/icons/pencil.svg" className="flex h-[18px] w-[18px]" />
               {editing ? 'Cancel' : 'Edit'}
             </button>
             <button

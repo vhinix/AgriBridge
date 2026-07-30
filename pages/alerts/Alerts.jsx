@@ -5,9 +5,6 @@ import { useAuth } from '../../context/AuthProvider';
 import { list } from '../../services/alerts';
 import { list as listFarmers } from '../../services/farmer';
 import { NavIcon } from '../../src/components/layout/Sidebar';
-import bugIcon from '../../src/assets/icons/bug.svg';
-import cloudRainIcon from '../../src/assets/icons/cloud-rain.svg';
-import sproutIcon from '../../src/assets/icons/sprout.svg';
 
 // The design's TYPE map, keyed by the values the `alerts.type` check constraint
 // actually allows. Shared with AlertDetail and Relay.
@@ -15,21 +12,21 @@ export const ALERT_TYPES = {
   weather: {
     label: 'Weather',
     group: 'Weather alerts',
-    icon: cloudRainIcon,
+    icon: '/icons/cloud-rain.svg',
     text: 'text-primary',
     chip: 'bg-pale text-primary',
   },
   pest: {
     label: 'Pest outbreak',
     group: 'Pest outbreak alerts',
-    icon: bugIcon,
+    icon: '/icons/bug.svg',
     text: 'text-accentInk',
     chip: 'bg-accentTint text-accentInk',
   },
   crop_recommendation: {
     label: 'Crop guidance',
     group: 'Crop guidance alerts',
-    icon: sproutIcon,
+    icon: '/icons/sprout.svg',
     text: 'text-primaryDark',
     chip: 'bg-[#E6F2E6] text-primaryDark',
   },

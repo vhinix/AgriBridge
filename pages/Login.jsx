@@ -3,7 +3,6 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../context/AuthProvider';
 import { supabase } from '../lib/supabase';
-import markGreen from '../src/assets/logo/agribridge-mark-green.svg';
 
 export default function Login() {
   const { user, loading } = useAuth();
@@ -48,7 +47,7 @@ export default function Login() {
     <div className="fixed inset-0 z-40 grid place-items-center overflow-auto bg-primary p-6">
       <div className="w-full max-w-[420px] animate-pop rounded-2xl bg-bg p-[40px_32px] shadow-[0_24px_64px_rgba(0,0,0,.24)]">
         <div className="mb-8 flex items-center gap-2">
-          <img src={markGreen} alt="" className="block h-8 w-8" />
+          <img src="/logo/agribridge-mark-green.svg" alt="" className="block h-8 w-8" />
           <span className="font-display text-[22px] font-semibold text-primary">
             AgriBridge
           </span>
