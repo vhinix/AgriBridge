@@ -21,7 +21,7 @@ function initials(name = '') {
 }
 
 export default function Profile() {
-  const { user, profile, signOut } = useAuth();
+  const { user, profile, refreshProfile, signOut } = useAuth();
   const navigate = useNavigate();
 
   const [draft, setDraft] = useState({
@@ -81,8 +81,10 @@ export default function Profile() {
       return;
     }
 
-    // AuthProvider refetches the profile when the user changes, not on edit, so
-    // the sidebar keeps the old name until reload. Flagged in the handover.
+    // Pull the saved row back through the provider so the sidebar footer picks
+    // the new name and region up immediately.
+    await refreshProfile();
+
     setStatus('Changes saved.');
     setSaving(false);
   }
