@@ -43,6 +43,13 @@ export default {
         card: '0 1px 2px rgba(31,41,55,.04),0 8px 24px rgba(31,41,55,.05)',
         panel: '0 2px 4px rgba(31,41,55,.04),0 12px 32px rgba(31,41,55,.06)',
       },
+      keyframes: {
+        'agb-pop': {
+          '0%': { opacity: 0, transform: 'scale(0.96)' },
+          '100%': { opacity: 1, transform: 'scale(1)' },
+        },
+      },
+      animation: { pop: 'agb-pop 240ms ease-out' },
     },
   },
   plugins: [],
