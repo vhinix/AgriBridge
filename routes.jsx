@@ -4,18 +4,17 @@ import AppShell from './src/components/layout/AppShell';
 
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
-import Analytics from './pages/farmers/Analytics';
-import Diagnosis from './pages/farmers/Diagnosis';
-import Profile from './pages/farmers/Profile';
-import Resources from './pages/farmers/Resources';
-import Training from './pages/farmers/Training';
-
-// /alerts and /farmers have no page module in the repo yet (pages/alerts/ holds
-// only a README, and there is no Farmers page file). They stay on this stub so
-// all eight nav destinations resolve; swap in the real pages when they land.
-function Pending({ title }) {
-  return <h1 className="text-[28px] leading-tight md:text-[34px]">{title}</h1>;
-}
+import Analytics from './pages/Analytics';
+import Diagnosis from './pages/Diagnosis';
+import Profile from './pages/Profile';
+import Resources from './pages/Resources';
+import Training from './pages/Training';
+import AddFarmer from './pages/farmers/AddFarmer';
+import FarmerDetail from './pages/farmers/FarmerDetail';
+import Farmers from './pages/farmers/Farmers';
+import AlertDetail from './pages/alerts/AlertDetail';
+import Alerts from './pages/alerts/Alerts';
+import Relay from './pages/alerts/Relay';
 
 export default function AppRoutes() {
   return (
@@ -27,8 +26,12 @@ export default function AppRoutes() {
       <Route element={<AppShell />}>
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/alerts" element={<Pending title="Alerts" />} />
-        <Route path="/farmers" element={<Pending title="Farmers" />} />
+        <Route path="/alerts" element={<Alerts />} />
+        <Route path="/alerts/:id" element={<AlertDetail />} />
+        <Route path="/alerts/:id/relay" element={<Relay />} />
+        <Route path="/farmers" element={<Farmers />} />
+        <Route path="/farmers/new" element={<AddFarmer />} />
+        <Route path="/farmers/:id" element={<FarmerDetail />} />
         <Route path="/diagnosis" element={<Diagnosis />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/training" element={<Training />} />
