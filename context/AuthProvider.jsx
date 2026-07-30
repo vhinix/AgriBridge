@@ -1,6 +1,16 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import { supabase } from '../lib/supabase';
+
+const PROFILE_COLUMNS = 'id, full_name, role, agency, region, phone';
 
 const AuthContext = createContext(null);
 
@@ -51,40 +61,57 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
-  // The officer's profiles row, refetched whenever the signed-in user changes.
-  useEffect(() => {
+  // Bumped for every profile request; a response whose id is no longer current
+  // has been superseded (by a newer refresh, a user change, or unmount) and is
+  // dropped rather than allowed to overwrite fresher state.
+  const profileRequest = useRef(0);
+
+  /**
+   * Re-read the officer's profiles row. Callers await this after writing to
+   * `profiles` so the shell picks the change up without a reload.
+   */
+  const refreshProfile = useCallback(async () => {
     if (!user) {
       setProfile(null);
-      return undefined;
+      return null;
     }
 
-    let active = true;
+    const requestId = (profileRequest.current += 1);
 
-    supabase
+    const { data, error } = await supabase
       .from('profiles')
-      .select('id, full_name, role, agency, region, phone')
+      .select(PROFILE_COLUMNS)
       .eq('id', user.id)
-      .maybeSingle()
-      .then(({ data, error }) => {
-        if (!active) return;
-        if (error) {
-          console.error('Failed to load officer profile:', error);
-          setProfile(null);
-          return;
-        }
-        setProfile(data ?? null);
-      });
+      .maybeSingle();
 
-    return () => {
-      active = false;
-    };
+    if (requestId !== profileRequest.current) return null;
+
+    if (error) {
+      console.error('Failed to load officer profile:', error);
+      return null;
+    }
+
+    setProfile(data ?? null);
+    return data ?? null;
   }, [user]);
+
+  // The officer's profiles row, refetched whenever the signed-in user changes.
+  useEffect(() => {
+    refreshProfile();
+
+    // Invalidate anything still in flight so it cannot land after this effect
+    // has been torn down.
+    return () => {
+      profileRequest.current += 1;
+    };
+  }, [refreshProfile]);
 
   const value = useMemo(
     () => ({
       user,
       profile,
       loading,
+      refreshProfile,
       signOut: async () => {
         const { error } = await supabase.auth.signOut();
         if (error) {
@@ -95,7 +122,7 @@ export function AuthProvider({ children }) {
         return { error: null };
       },
     }),
-    [user, profile, loading]
+    [user, profile, loading, refreshProfile]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
