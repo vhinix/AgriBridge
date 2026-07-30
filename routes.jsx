@@ -4,11 +4,11 @@ import AppShell from './src/components/layout/AppShell';
 
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
-import Analytics from './pages/farmers/Analytics';
-import Diagnosis from './pages/farmers/Diagnosis';
-import Profile from './pages/farmers/Profile';
-import Resources from './pages/farmers/Resources';
-import Training from './pages/farmers/Training';
+import Analytics from './pages/Analytics';
+import Diagnosis from './pages/Diagnosis';
+import Profile from './pages/Profile';
+import Resources from './pages/Resources';
+import Training from './pages/Training';
 
 // /alerts and /farmers have no page module in the repo yet (pages/alerts/ holds
 // only a README, and there is no Farmers page file). They stay on this stub so
